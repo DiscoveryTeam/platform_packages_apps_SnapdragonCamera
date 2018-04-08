@@ -194,7 +194,7 @@ public class CameraUtil {
     }
 
     public static boolean hasCameraKey() {
-        return (sDeviceKeysPresent & KEY_MASK_CAMERA) != 0;
+        return (KEY_MASK_CAMERA) != 0;
     }
 
     public static boolean isMeteringAreaSupported(Parameters params) {
@@ -230,9 +230,6 @@ public class CameraUtil {
     private static float sPixelDensity = 1;
     private static ImageFileNamer sImageFileNamer;
 
-    // Get available hardware keys
-    private static int sDeviceKeysPresent;
-
     private CameraUtil() {
     }
 
@@ -244,8 +241,6 @@ public class CameraUtil {
         sPixelDensity = metrics.density;
         sImageFileNamer = new ImageFileNamer(
                 context.getString(R.string.image_file_name_format));
-        sDeviceKeysPresent = context.getResources().getInteger(
-                com.android.internal.R.integer.config_deviceHardwareKeys);
     }
 
     public static int dpToPixel(int dp) {
